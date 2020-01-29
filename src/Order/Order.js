@@ -41,14 +41,21 @@ const OrderItem = styled.div`
 const DetailItem = styled.div`
   color: grey;
   font-size: 10px;
-`
+`;
 
-export function Order({ orders }) {
+export function Order({ orders, setOrders }) {
   const subtotal = orders.reduce((total, order) => {
-    return total+ getPrice(order);
+    return total + getPrice(order);
   }, 0);
   const tax = subtotal * 0.08;
   const total = subtotal + tax;
+
+  const deleteItem = index => {
+    const newOrders = [...orders];
+    newOrders.splice(index, 1);
+    setOrders(newOrders);
+  };
+
   return (
     <OrderStyled>
       {orders.length === 0 ? (
@@ -57,37 +64,45 @@ export function Order({ orders }) {
         <OrderContent>
           {" "}
           <OrderContainer> Your Order: </OrderContainer>{" "}
-          {orders.map(order => (
+          {orders.map((order, index) => (
             <OrderContainer>
               <OrderItem>
                 <div>{order.quantity}</div>
                 <div>{order.name}</div>
-                <div/>
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    deleteItem(index);
+                  }}
+                >
+                  <span role="img" aria-label="delete">
+                    🗑️
+                  </span>
+                </div>
                 <div>{formatPrice(getPrice(order))}</div>
-                </OrderItem>
-                <DetailItem>
-                  {order.toppings
+              </OrderItem>
+              <DetailItem>
+                {order.toppings
                   .filter(t => t.checked)
                   .map(topping => topping.name)
-                  .join(", ")
-                  }
-                </DetailItem>
-                {order.choice && <DetailItem>{order.choice}</DetailItem>}
+                  .join(", ")}
+              </DetailItem>
+              {order.choice && <DetailItem>{order.choice}</DetailItem>}
             </OrderContainer>
           ))}
           <OrderContainer>
             <OrderItem>
-              <div/>
+              <div />
               <div>Subtotal</div>
               <div>{formatPrice(subtotal)}</div>
             </OrderItem>
             <OrderItem>
-              <div/>
+              <div />
               <div>Tax</div>
               <div>{formatPrice(tax)}</div>
             </OrderItem>
             <OrderItem>
-              <div/>
+              <div />
               <div>Total</div>
               <div>{formatPrice(total)}</div>
             </OrderItem>
