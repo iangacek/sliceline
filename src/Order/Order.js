@@ -7,6 +7,7 @@ import {
 } from "../FoodDialog/FoodDialog";
 import { formatPrice } from "../Data/FoodData";
 import { getPrice } from "../FoodDialog/FoodDialog";
+const database = window.firebase.database();
 
 const OrderStyled = styled.div`
   position: fixed;
@@ -32,12 +33,14 @@ const OrderContainer = styled.div`
   ${({ editable }) =>
     editable
       ? `
-  &:hover {
-    cursor: pointer;
-    background-color: #e7e7e7;
-  }`
+    &:hover {
+      cursor: pointer;
+      background-color: #e7e7e7;
+    }
+  `
       : `
-pointer-events: none;`}
+    pointer-events: none;
+  `}
 `;
 
 const OrderItem = styled.div`
@@ -52,7 +55,35 @@ const DetailItem = styled.div`
   font-size: 10px;
 `;
 
-export function Order({ orders, setOrders, setOpenFood, login, loggedIn }) {
+function sendOrder(orders, {email, displayName}) {
+  const newOrderRef = database.ref('orders').push();
+  const newOrders = orders.map(order => {
+    return Object.keys(order).reduce((acc, orderKey) => {
+      if (!order[orderKey]) {
+        return acc;
+      }
+      if (orderKey === "toppings") {
+        return {
+          ...acc,
+          [orderKey]: order[orderKey]
+          .filter(({ checked }) => checked)
+          .map (({ name}) => name)
+        };
+      }
+      return {
+        ...acc,
+        [orderKey]: order[orderKey]
+      };
+    }, {});
+  });
+  newOrderRef.set({
+    order: newOrders,
+    email,
+    displayName
+  });
+}
+
+export function Order({ orders, setOrders, setOpenFood, login, loggedIn, setOpenOrderDialog }) {
   const subtotal = orders.reduce((total, order) => {
     return total + getPrice(order);
   }, 0);
@@ -123,15 +154,20 @@ export function Order({ orders, setOrders, setOpenFood, login, loggedIn }) {
           </OrderContainer>
         </OrderContent>
       )}
-      <DialogFooter>
-        <ConfirmButton onClick={() => {
-          if (loggedIn) {
-            console.log('logged in');
-          } else {
-            login();
-          }
-        }}>Checkout</ConfirmButton>
-      </DialogFooter>
+      {orders.length > 0 && <DialogFooter>
+        <ConfirmButton
+          onClick={() => {
+            if (loggedIn) {
+              setOpenOrderDialog(true);
+              sendOrder(orders, loggedIn);
+            } else {
+              login();
+            }
+          }}
+        >
+          Checkout
+        </ConfirmButton>
+      </DialogFooter>}
     </OrderStyled>
   );
 }
