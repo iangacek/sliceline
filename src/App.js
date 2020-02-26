@@ -8,7 +8,7 @@ import { GlobalStyle } from "./Styles/GlobalStyle";
 import { useOpenFood } from "./Hooks/useOpenFood";
 import { useOrders } from "./Hooks/useOrders";
 import { useTitle } from "./Hooks/useTitle";
-import { useAuthentication} from "./Hooks/useAuthentication";
+import { useAuthentication } from "./Hooks/useAuthentication";
 import { OrderDialog } from "./Order/OrderDialog";
 import { useOrderDialog } from "./Hooks/useOrderDialog";
 
