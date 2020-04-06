@@ -9,44 +9,44 @@ export const foodItems = [
   {
     name: "Cheese Pizza",
     img: "/img/pizza.png",
-    section: "Pizzas",
-    price: 2
+    section: "Pizza",
+    price: 1
   },
   {
     name: "Pepperoni Pizza",
     img: "/img/pizza2.jpeg",
-    section: "Pizzas",
-    price: 2.5
+    section: "Pizza",
+    price: 1.5
   },
   {
     name: "Chicken Pizza",
     img: "/img/chicken-pizza.jpeg",
-    section: "Pizzas",
-    price: 3
+    section: "Pizza",
+    price: 2
   },
   {
     name: "Veggie Pizza",
     img: "/img/healthy-pizza.jpeg",
-    section: "Pizzas",
-    price: 2.5
+    section: "Pizza",
+    price: 2
   },
   {
     name: "Burger",
     img: "/img/burger.jpeg",
-    section: "Sandwiches",
-    price: 5
+    section: "Sandwich",
+    price: 3
   },
   {
     name: "Gyro",
     img: "/img/gyro.jpeg",
-    section: "Sandwiches",
-    price: 5
+    section: "Sandwich",
+    price: 4
   },
   {
     name: "Shrimp PoBoy",
     img: "/img/sandwich.jpeg",
-    section: "Sandwiches",
-    price: 5
+    section: "Sandwich",
+    price: 4
   },
   {
     name: "Fries",
@@ -55,7 +55,7 @@ export const foodItems = [
     price: 2
   },
   {
-    price: 1.5,
+    price: 1,
     name: 'Soda',
     section: 'Drinks',
     choices: ['Coke', 'Sprite', 'Root Beer']
