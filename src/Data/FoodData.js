@@ -73,11 +73,18 @@ export const foodItems = [
     price: 0.5
   },
   {
-    price: 1,
+    price: 2.5,
     name: 'Soda',
     img: "/img/soda.jpeg",
     section: 'Drinks',
     choices: ['Coke', 'Coke Zero', 'Sprite', 'Root Beer', 'Fanta', 'Water']
+  },
+  {
+    price: 5,
+    name: 'Beer',
+    img: "/img/beer.jpeg",
+    section: 'Drinks',
+    choices: ['Budweiser', 'Bud Light', 'Coors', 'Coors Light', 'White Claw', 'Sierra Nevada IPA', 'Odouls N/A']
   }
 ];
 
