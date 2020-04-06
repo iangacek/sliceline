@@ -57,9 +57,8 @@ export const foodItems = [
   {
     price: 1.5,
     name: 'Soda',
-    img: "/img/soda.jpeg",
     section: 'Drinks',
-    choices: ['Coke', 'Coke Zero', 'Fanta', 'Sprite', 'Root Beer', 'Water']
+    choices: ['Coke', 'Sprite', 'Root Beer']
   }
 ];
 

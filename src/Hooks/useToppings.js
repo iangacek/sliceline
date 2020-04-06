@@ -19,22 +19,14 @@ const toppingsList = [
     "Extra Cheese",
     "Pepperoni",
     "Sausage",
-    "Meatball",
-    "Grilled Chicken",
-    "Beef",
-    "Ham",
-    "Bacon",
-    "Anchovies",
     "Onions",
-    "Banana Peppers",
-    "Green Olives",
-    "Black Olives",
+    "Peppers",
     "Pineapple",
-    "Jalapeno Peppers",
-    "Tomatoes",
+    "Ham",
     "Spinach",
     "Artichokes",
-    "Mushrooms"
+    "Mushrooms",
+    "Anchovies"
 ];
 
 function getDefaultToppings() {
