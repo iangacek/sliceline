@@ -103,7 +103,7 @@ export function Order({ orders, setOrders, setOpenFood, login, loggedIn, setOpen
       ) : (
         <OrderContent>
           {" "}
-          <OrderContainer> Your Order: </OrderContainer>{" "}
+          <OrderContainer> 🛒 Your Order: </OrderContainer>{" "}
           {orders.map((order, index) => (
             <OrderContainer editable>
               <OrderItem

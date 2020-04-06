@@ -55,6 +55,24 @@ export const foodItems = [
     price: 2
   },
   {
+    name: "Garlic Sauce",
+    img: "/img/garlic-sauce.jpeg",
+    section: "Sides",
+    price: 0.5
+  },
+  {
+    name: "Ranch Sauce",
+    img: "/img/ranch-sauce.jpeg",
+    section: "Sides",
+    price: 0.5
+  },
+  {
+    name: "Marinara Sauce",
+    img: "/img/marinara-sauce.jpeg",
+    section: "Sides",
+    price: 0.5
+  },
+  {
     price: 1,
     name: 'Soda',
     img: "/img/soda.jpeg",
