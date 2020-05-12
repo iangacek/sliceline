@@ -49,16 +49,48 @@ export const foodItems = [
     price: 4
   },
   {
+    name: "Melt",
+    img: "/img/melt.jpeg",
+    section: "Sandwich",
+    price: 4
+  },
+  {
     name: "Fries",
     img: "/img/fries.jpeg",
     section: "Sides",
     price: 2
   },
   {
-    price: 1,
+    name: "Garlic Sauce",
+    img: "/img/garlic-sauce.jpeg",
+    section: "Sides",
+    price: 0.5
+  },
+  {
+    name: "Ranch Sauce",
+    img: "/img/ranch-sauce.jpeg",
+    section: "Sides",
+    price: 0.5
+  },
+  {
+    name: "Marinara Sauce",
+    img: "/img/marinara-sauce.jpeg",
+    section: "Sides",
+    price: 0.5
+  },
+  {
+    price: 2.5,
     name: 'Soda',
+    img: "/img/soda.jpeg",
     section: 'Drinks',
-    choices: ['Coke', 'Sprite', 'Root Beer']
+    choices: ['Coke', 'Coke Zero', 'Sprite', 'Root Beer', 'Fanta', 'Water']
+  },
+  {
+    price: 5,
+    name: 'Beer',
+    img: "/img/beer.jpeg",
+    section: 'Drinks',
+    choices: ['Budweiser', 'Bud Light', 'Coors', 'Coors Light', 'White Claw', 'Sierra Nevada IPA', 'Odouls N/A']
   }
 ];
 
